@@ -1,0 +1,668 @@
+/* =========================================================
+   Usma Aktar — Academic Profile
+   Palette: parchment paper, ink navy, seal burgundy, slate blue
+   Type: Fraunces (display) / Source Sans 3 (body) / IBM Plex Mono (data)
+   ========================================================= */
+
+:root {
+    --paper: #ffffff;
+    --paper-raised: #ffffff;
+    --ink: #1e2430;
+    --ink-soft: #565c6b;
+    --ink-faint: #8a8f9b;
+    --seal: #7a2338;
+    --seal-soft: #a8455c;
+    --slate: #33526e;
+    --line: #dad6c9;
+    --line-strong: #c7c2b2;
+
+    --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+    --font-body: "Source Sans 3", "Segoe UI", Arial, sans-serif;
+    --font-mono: "IBM Plex Mono", "SFMono-Regular", Menlo, monospace;
+
+    --sidebar-w: 300px;
+    --content-max: 720px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: var(--slate);
+    text-decoration: none;
+}
+
+a:hover,
+a:focus-visible {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+:focus-visible {
+    outline: 2px solid var(--seal);
+    outline-offset: 2px;
+}
+
+.skip-link {
+    position: absolute;
+    left: -999px;
+    top: 0;
+    background: var(--ink);
+    color: #fff;
+    padding: 0.75em 1.25em;
+    z-index: 200;
+}
+
+.skip-link:focus {
+    left: 0;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* ---------- Layout shell ---------- */
+
+.page {
+    display: flex;
+    min-height: 100vh;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* ---------- Sidebar ---------- */
+
+.sidebar {
+    flex: 0 0 var(--sidebar-w);
+    width: var(--sidebar-w);
+    border-right: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.sidebar-inner {
+    padding: 3rem 2.25rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.portrait {
+    width: 108px;
+    height: 108px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--line-strong);
+    box-shadow: 0 1px 0 rgba(30, 36, 48, 0.04);
+}
+
+.name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.9rem;
+    line-height: 1.15;
+    margin: 1.1rem 0 0.15rem;
+    color: var(--ink);
+}
+
+.name span {
+    color: var(--seal);
+}
+
+.role {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--seal);
+    margin: 0.1rem 0 0.3rem;
+}
+
+.focus {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    margin: 0 0 1.5rem;
+}
+
+.contact-list {
+    width: 100%;
+    margin-bottom: 0.75rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+}
+
+.contact-list li {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.85rem;
+}
+
+.contact-label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 0.15rem;
+}
+
+.contact-value {
+    color: var(--ink-soft);
+    display: inline-flex;
+    align-items: center;
+    word-break: break-word;
+}
+
+.at-icon {
+    height: 0.85em;
+    margin: 0 0.15em;
+}
+
+.social-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.9rem;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--line);
+    width: 100%;
+}
+
+.social-list a {
+    font-size: 0.82rem;
+    color: var(--slate);
+}
+
+.side-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.side-nav-link {
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    padding: 0.1rem 0;
+    border-left: 2px solid transparent;
+    padding-left: 0.7rem;
+}
+
+.side-nav-link:hover,
+.side-nav-link:focus-visible {
+    color: var(--ink);
+    text-decoration: none;
+    border-left-color: var(--line-strong);
+}
+
+.side-nav-link.active {
+    color: var(--seal);
+    border-left-color: var(--seal);
+    font-weight: 600;
+}
+
+.journey {
+    margin-top: auto;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--line);
+    width: 100%;
+}
+
+.journey-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 0.7rem;
+}
+
+.journey-logos {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+}
+
+.journey-logos a {
+    display: inline-block;
+    line-height: 0;
+    border-radius: 4px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.journey-logos a:hover,
+.journey-logos a:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(30, 36, 48, 0.12);
+}
+
+.journey-logos img {
+    height: 26px;
+    width: auto;
+    max-width: 52px;
+    object-fit: contain;
+}
+
+/* ---------- Mobile top bar ---------- */
+
+.mobile-bar {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.mobile-bar-name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.15rem;
+}
+
+.nav-toggle {
+    background: none;
+    border: 1px solid var(--line-strong);
+    border-radius: 4px;
+    width: 38px;
+    height: 34px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: var(--ink);
+}
+
+/* ---------- Main content ---------- */
+
+main {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 3.5rem 3rem 4rem;
+}
+
+.section {
+    max-width: var(--content-max);
+    padding-bottom: 3rem;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.section:last-of-type {
+    border-bottom: none;
+}
+
+.section-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin: 0 0 1.75rem;
+    color: var(--ink);
+}
+
+.eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--seal);
+    margin: 0 0 0.9rem;
+}
+
+.statement {
+    font-size: 1.12rem;
+    line-height: 1.75;
+    color: var(--ink);
+    margin: 0 0 1.5rem;
+    max-width: 62ch;
+    text-align: justify;
+}
+
+.keyword-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.7rem;
+}
+
+.keyword-row li {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--slate);
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    padding: 0.3rem 0.85rem;
+    background: var(--paper-raised);
+}
+
+/* ---------- Timeline (signature element) ---------- */
+
+.timeline {
+    position: relative;
+    padding-left: 4.4rem;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 2.55rem;
+    top: 0.35rem;
+    bottom: 0.35rem;
+    width: 1px;
+    background: var(--line-strong);
+}
+
+.entry {
+    position: relative;
+    padding-bottom: 2.2rem;
+}
+
+.entry:last-child {
+    padding-bottom: 0;
+}
+
+.entry-mark {
+    position: absolute;
+    left: -4.4rem;
+    top: 0.15rem;
+    width: 4.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.55rem;
+}
+
+.entry-mark::after {
+    content: "";
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 2px solid var(--seal);
+    flex-shrink: 0;
+}
+
+.entry-year {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+}
+
+.entry-body {
+    padding-left: 0.1rem;
+}
+
+.entry-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.08rem;
+    margin: 0 0 0.25rem;
+    color: var(--ink);
+}
+
+.entry-org {
+    font-size: 0.92rem;
+    color: var(--slate);
+    margin: 0 0 0.5rem;
+    font-weight: 600;
+}
+
+.entry-desc {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    margin: 0 0 0.6rem;
+    max-width: 58ch;
+}
+
+.entry-date {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.02em;
+}
+
+/* ---------- Publications ---------- */
+
+.scholar-link {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    margin-bottom: 1.5rem;
+}
+
+.pub-list {
+    margin: 0;
+    padding-left: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.pub-list li {
+    font-size: 0.96rem;
+    color: var(--ink-soft);
+    line-height: 1.65;
+}
+
+.pub-list em {
+    color: var(--ink);
+    font-style: italic;
+}
+
+/* ---------- Skills ---------- */
+
+.skill-group {
+    margin-bottom: 1.75rem;
+}
+
+.skill-heading {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0 0 0.75rem;
+}
+
+.tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.6rem;
+}
+
+.tag-row li {
+    font-size: 0.85rem;
+    color: var(--ink);
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    padding: 0.35rem 0.7rem;
+}
+
+.skill-group:nth-of-type(2) .tag-row li {
+    /*border-color: var(--seal-soft);
+    color: var(--seal);
+    background: #fbf1f3;*/
+}
+
+.competitive-box {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--line);
+}
+
+.icpc-badge {
+    height: 42px;
+    width: auto;
+    flex-shrink: 0;
+}
+
+.competitive-box p {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    margin: 0;
+}
+
+/* ---------- Interests ---------- */
+
+.interests-caption {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 1.5rem 0 0.9rem;
+}
+
+.flag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.4rem;
+}
+
+.flag-row li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    width: 64px;
+}
+
+.flag-row img {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid var(--line-strong);
+}
+
+.flag-row span {
+    font-size: 0.68rem;
+    color: var(--ink-faint);
+    text-align: center;
+    line-height: 1.2;
+}
+
+/* ---------- Footer ---------- */
+
+.page-footer {
+    max-width: var(--content-max);
+    padding-top: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+
+@media (max-width: 960px) {
+    .mobile-bar {
+        display: flex;
+    }
+
+    .page {
+        display: block;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 280px;
+        transform: translateX(-100%);
+        transition: transform 0.25s ease;
+        background: var(--paper);
+        z-index: 150;
+        box-shadow: 2px 0 18px rgba(0, 0, 0, 0.12);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    main {
+        padding: 2.5rem 1.4rem 3.5rem;
+    }
+
+    .section {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 560px) {
+    .timeline {
+        padding-left: 3.4rem;
+    }
+
+    .timeline::before {
+        left: 1.6rem;
+    }
+
+    .entry-mark {
+        left: -3.4rem;
+        width: 3.4rem;
+    }
+
+    .entry-year {
+        display: none;
+    }
+
+    .name {
+        font-size: 1.6rem;
+    }
+}
